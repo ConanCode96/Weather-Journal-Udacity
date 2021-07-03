@@ -25,7 +25,7 @@ body{
 }
 
 #entryHolder{
-
+color: black;
 }
 
 #date{
@@ -65,8 +65,8 @@ input{
 }
 
 button{
-    width: 400px;
-    height: 100px;
+    width: 150px;
+    height: 40px;
     background: #3b4a6b;
     color: #f0d43a;
     font-size: 26px;

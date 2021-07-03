@@ -27,8 +27,8 @@ app.use(cors());
 app.use(express.static('website'));
 
 
-// Callback function to complete GET '/all'
-app.get('/all', (_req, res) => res.send(projectData));
+// Callback function to complete GET '/getWeatherData'
+app.get('/getWeatherData', (_req, res) => res.send(projectData));
 
 
 // POST route
@@ -39,12 +39,12 @@ function addWeatherEntry(request, response) {
     projectData.temperature = request.body.temperature;
     projectData.user_response = request.body.user_response;
     // projectData = [...request.body]
-    response.send();
+    // response.send();
     response.end();
     console.log(projectData);
 }
 
 
 // Setup Server
-const port_id = 8000;
-const server = app.listen(port, `running on localhost: ${port_id}`);
+const port_id = 8008;
+app.listen(port_id, () => console.log(`running on localhost: ${port_id}`));
