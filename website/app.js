@@ -6,7 +6,7 @@ const API_KEY = 'b61e56e3da507411ef8cc97c1a7b51f5';
 
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = d.getMonth() + '.' + d.getDate() + '.' + d.getFullYear();
+let newDate = (d.getMonth() + 1) + '.' + d.getDate() + '.' + d.getFullYear();
 console.log(newDate);
 
 // Event listener to add function to existing HTML DOM element
@@ -26,7 +26,7 @@ function handleClickEvent(_e) {
 
 // Async GET
 const getWeatherTemperature = async (baseURL, zipCode, api_key) => {
-    const requestURL = baseURL + 'zip=' + zipCode + ',us' + '&' + 'appid=' + api_key
+    const requestURL = `${baseURL}zip=${zipCode}&units=metric&appid=${api_key}`
     console.log(requestURL)
 
     try{
@@ -65,7 +65,7 @@ const updateUI = async () => {
         const resData = await response.json();
         console.log(resData)
         document.getElementById('date').innerHTML = `Date: ${resData.date}`;
-        document.getElementById('temp').innerHTML = `Temperature: ${resData.temperature}`;
+        document.getElementById('temp').innerHTML = `Temperature: ${resData.temperature} Celsius`;
         document.getElementById('content').innerHTML = `Content: ${resData.user_response}`;
         console.log('updated successfully!')
     }
